@@ -6,7 +6,7 @@ btn.addEventListener("click", ()=>alert("Has pulsado el botón")); */
 const body=document.querySelector("tr");
 body.addEventListener("mousemove", e => console.log(e.offsetX+"  "+e.offsetY)); */
 
-//Ejercicio 4 y 5 Preguntar a Jose ¿por qué peta a los segundos?
+/* //Ejercicio 4 y 5 Preguntar a Jose ¿por qué peta a los segundos?
 function cargarCanvas(){
     //Creacion elementos html
     document.body.innerHTML="";
@@ -65,7 +65,7 @@ function cargarCanvas(){
         
     });
 };
-window.addEventListener('load', cargarCanvas);
+window.addEventListener('load', cargarCanvas); */
 
 /* //Ejercicio 9 y 10
 var imagenes=document.querySelectorAll("img");
