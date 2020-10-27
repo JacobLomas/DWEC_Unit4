@@ -8,8 +8,7 @@ body.addEventListener("mousemove", e => console.log(e.offsetX+"  "+e.offsetY)); 
 
 //Ejercicio 4 y 5
 function cargarCanvas(){
-    document.write("<h3>Shift: Azul,  Control: Rojo</h3>");
-    document.write("Debes volver a pulsar la tecla para desactivar el color");
+    document.write("<h3>Shift: Azul,  Control: Rojo, Alt Graph: Borrar</h3>");
     document.write('<table width='+'"700px"'+"height="+'"700px"'+"style="+'"border: 1px solid black"'+'>');
     for(let i=0; i<30;i++){
         document.write('<tr width="100px">');
@@ -20,31 +19,43 @@ function cargarCanvas(){
     }
     document.write('</table>');
     
-    var shift, ctrl;
+    var shiftBlue, ctrlRed, altBorrar;
     var tds=document.querySelectorAll("td");
     tds.forEach(function(td){
-        td.addEventListener("mousemove", function(){            
+        td.addEventListener("mousemove", function(){    
             window.addEventListener("keydown", function(e){
-                if(e.getModifierState("Control")){
-                    ctrl=true;
-                    shift=false;
+                if(e.ctrlKey){
+                    ctrlRed=true;
+                    shiftBlue=false;
+                    altBorrar=false;
                     window.addEventListener("keyup", function(e){
-                        ctrl=false;
+                        ctrlRed=false;
                     });
-                }
+                };
                 if(e.shiftKey){
-                    ctrl=false;
-                    shift=true;
+                    ctrlRed=false;
+                    shiftBlue=true;
+                    altBorrar=false;
                     window.addEventListener("keyup", function(e){
-                        shift=false;
+                        shiftBlue=false;
+                    });
+                };
+                if(e.getModifierState("AltGraph")){
+                    altBorrar=true;
+                    ctrlRed=false;
+                    shiftBlue=false;
+                    window.addEventListener("keyup", function(e){
+                        altBorrar=false;
                     });
                 }
             });
-            if(ctrl)
+            if(ctrlRed)
                 td.style.cssText="background-color: red; border: 1px solid black;";
-            else if(shift)
+            else if(shiftBlue)
                     td.style.cssText="background-color: blue; border: 1px solid black;";
-            //td.style.cssText="background-color: red; border: 1px solid black;";
+                else if(altBorrar)
+                    td.style.cssText="background-color: white; border: 1px solid black;";
+
         });
         
     });
