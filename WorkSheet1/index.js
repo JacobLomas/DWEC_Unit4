@@ -6,8 +6,10 @@ btn.addEventListener("click", ()=>alert("Has pulsado el botón")); */
 const body=document.querySelector("tr");
 body.addEventListener("mousemove", e => console.log(e.offsetX+"  "+e.offsetY)); */
 
-/* //Ejercicio 4 y 5
+//Ejercicio 4 y 5
 function cargarCanvas(){
+    document.write("<h3>Shift: Azul,  Control: Rojo</h3>");
+    document.write("Debes volver a pulsar la tecla para desactivar el color");
     document.write('<table width='+'"700px"'+"height="+'"700px"'+"style="+'"border: 1px solid black"'+'>');
     for(let i=0; i<30;i++){
         document.write('<tr width="100px">');
@@ -19,19 +21,24 @@ function cargarCanvas(){
     document.write('</table>');
     
     var shift, ctrl;
-    var td=document.querySelectorAll("td");
-    td.forEach(function(td){
+    var tds=document.querySelectorAll("td");
+    tds.forEach(function(td){
         td.addEventListener("mousemove", function(){            
             window.addEventListener("keydown", function(e){
-                if(e.ctrlKey){
+                if(e.getModifierState("Control")){
                     ctrl=true;
                     shift=false;
+                    window.addEventListener("keyup", function(e){
+                        ctrl=false;
+                    });
                 }
                 if(e.shiftKey){
+                    ctrl=false;
                     shift=true;
-                    ctrl=false
+                    window.addEventListener("keyup", function(e){
+                        shift=false;
+                    });
                 }
-                console.log(e.code);
             });
             if(ctrl)
                 td.style.cssText="background-color: red; border: 1px solid black;";
@@ -42,12 +49,13 @@ function cargarCanvas(){
         
     });
 };
-window.addEventListener('load', cargarCanvas); */
+window.addEventListener('load', cargarCanvas);
 
-//Ejercicio 9 y 10
+/* //Ejercicio 9 y 10
 var imagenes=document.querySelectorAll("img");
 imagenes.forEach(function(imagen){
     imagen.addEventListener("dragend", function(e){
         imagen.style.cssText="position: absolute; top: "+e.y+"; left: "+e.x+";";
     });
 });
+ */
