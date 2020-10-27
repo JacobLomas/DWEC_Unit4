@@ -6,8 +6,10 @@ btn.addEventListener("click", ()=>alert("Has pulsado el botón")); */
 const body=document.querySelector("tr");
 body.addEventListener("mousemove", e => console.log(e.offsetX+"  "+e.offsetY)); */
 
-//Ejercicio 4 y 5
+//Ejercicio 4 y 5 Preguntar a Jose ¿por qué peta a los segundos?
 function cargarCanvas(){
+    //Creacion elementos html
+    document.body.innerHTML="";
     document.write("<h3>Shift: Azul,  Control: Rojo, Alt Graph: Borrar</h3>");
     document.write('<table width='+'"700px"'+"height="+'"700px"'+"style="+'"border: 1px solid black"'+'>');
     for(let i=0; i<30;i++){
@@ -17,8 +19,11 @@ function cargarCanvas(){
         }
         document.write('</tr>');
     }
-    document.write('</table>');
-    
+    document.write('</table><br>');
+    document.write("<button>Borrar Canvas</button>");
+
+    //Eventos
+    document.querySelector("button").addEventListener("click", cargarCanvas);
     var shiftBlue, ctrlRed, altBorrar;
     var tds=document.querySelectorAll("td");
     tds.forEach(function(td){
