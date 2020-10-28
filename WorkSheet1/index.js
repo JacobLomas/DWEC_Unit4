@@ -1,29 +1,29 @@
 /* //Ejercicio 1
-const btn=document.querySelector("button");
+const btn=document.getElementById("alert");
 btn.addEventListener("click", ()=>alert("Has pulsado el botón")); */
 
 /* //Ejercicio 2
-const body=document.querySelector("tr");
+const body=document.querySelector("td");
 body.addEventListener("mousemove", e => console.log(e.offsetX+"  "+e.offsetY)); */
 
-/* //Ejercicio 4 y 5 Preguntar a Jose ¿por qué peta a los segundos?
-function cargarCanvas(){
+//Ejercicio 4 y 5 Preguntar a Jose ¿por qué peta a los segundos?
+function main(){
     //Creacion elementos html
-    document.body.innerHTML="";
-    document.write("<h3>Shift: Azul,  Control: Rojo, Alt Graph: Borrar</h3>");
-    document.write('<table width='+'"700px"'+"height="+'"700px"'+"style="+'"border: 1px solid black"'+'>');
+    tabla=("<h3>Shift: Azul,  Control: Rojo, Alt Graph: Borrar</h3>");
+    tabla+=('<table width='+'"700px"'+"height="+'"700px"'+"style="+'"border: 1px solid black"'+'>');
     for(let i=0; i<30;i++){
-        document.write('<tr width="100px">');
+        tabla+=('<tr width="100px">');
         for(let j=0; j<30;j++){
-            document.write('<td id="width="100px" style="border: 1px solid black"></td>');
+            tabla+=('<td id="width="100px" style="border: 1px solid black"></td>');
         }
-        document.write('</tr>');
+        tabla+=('</tr>');
     }
-    document.write('</table><br>');
-    document.write("<button>Borrar Canvas</button>");
+    tabla+=('</table><br>');
+    tabla+=("<button>Borrar Canvas</button>");
+    document.getElementById("tabla").innerHTML=tabla;
 
     //Eventos
-    document.querySelector("button").addEventListener("click", cargarCanvas);
+    document.querySelector("button").addEventListener("click", main);
     var shiftBlue, ctrlRed, altBorrar;
     var tds=document.querySelectorAll("td");
     tds.forEach(function(td){
@@ -65,13 +65,12 @@ function cargarCanvas(){
         
     });
 };
-window.addEventListener('load', cargarCanvas); */
 
-/* //Ejercicio 9 y 10
+
+//Ejercicio 9 y 10
 var imagenes=document.querySelectorAll("img");
 imagenes.forEach(function(imagen){
     imagen.addEventListener("dragend", function(e){
         imagen.style.cssText="position: absolute; top: "+e.y+"; left: "+e.x+";";
     });
 });
- */
