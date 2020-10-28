@@ -22,13 +22,13 @@ function main(){
     tabla+=("<button>Borrar Canvas</button>");
     document.getElementById("tabla").innerHTML=tabla;
 
-    //Eventos
+    //Eventos 
     document.querySelector("button").addEventListener("click", main);
     var shiftBlue, ctrlRed, altBorrar;
     var tds=document.querySelectorAll("td");
     tds.forEach(function(td){
-        td.addEventListener("mousemove", function(){    
-            window.addEventListener("keydown", function(e){
+        td.addEventListener("mousemove", function(e){    
+            window.addEventListener("keydown", function(e){//Estos eventos son inecesarios, mousemove tambien detecta la tecla pulsada :D 
                 if(e.ctrlKey){
                     ctrlRed=true;
                     shiftBlue=false;
