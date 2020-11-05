@@ -6,7 +6,7 @@ btn.addEventListener("click", ()=>alert("Has pulsado el botón")); */
 const body=document.querySelector("td");
 body.addEventListener("mousemove", e => console.log(e.offsetX+"  "+e.offsetY)); */
 
-//Ejercicio 4 y 5 Preguntar a Jose ¿por qué peta a los segundos?
+/* //Ejercicio 4 y 5 Preguntar a Jose ¿por qué peta a los segundos?
 function main(){
     //Creacion elementos html
     tabla=("<h3>Shift: Azul,  Control: Rojo, Alt Graph: Borrar</h3>");
@@ -64,13 +64,17 @@ function main(){
         });
         
     });
-};
+}; */
 
 
 //Ejercicio 9 y 10
 var imagenes=document.querySelectorAll("img");
 imagenes.forEach(function(imagen){
+    var top, left;
+    top=imagen.style.top;
+    left=imagen.style.left;
     imagen.addEventListener("dragend", function(e){
-        imagen.style.cssText="position: absolute; top: "+e.y+"; left: "+e.x+";";
+
+        imagen.style.cssText="position: absolute; top: "+(e.y-top)+"; left: "+(e.x-left)+";";
     });
 });
