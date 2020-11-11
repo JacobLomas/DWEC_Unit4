@@ -1,0 +1,38 @@
+header{
+    background-color: lightskyblue;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+#cerrar{
+    display: none;
+    position: relative;
+    left: 94%;
+    padding: 8px;
+}
+#bienvenida{
+    display: none;
+    font-size: 1.8em;
+}
+fieldset{
+    position: relative;
+    border: solid black 1px;
+    padding: 6%;
+    width: 45%;
+    left: 22.5%;
+}
+legend{
+    font-size: 3em;
+}
+label{
+    font-size: 1.8em;
+}
+input{
+    font-size: 1.8em;
+    position: relative;
+    left: 6%;
+}
+button:not(#cerrar){
+    font-size: 1.8em;
+    position: relative;
+    left: 8%;
+}
