@@ -24,7 +24,9 @@ function main(){
       document.getElementById("usuario").style.display="none";
       document.body.style.backgroundColor=getCookie("bgcolor");
       document.querySelectorAll("p").forEach((p)=>p.style.backgroundColor=getCookie("pcolor"));
-      document.body.style.fontSize=getCookie("letra");
+      document.querySelectorAll("p").forEach(function(p){
+        p.style.fontSize=getCookie("letra")+"px";
+      })
       document.querySelector("h1").innerHTML=getCookie("usuario")+", bienvenido al perfil de usuario, solo puede cerrar sesión :D!";
       document.getElementById("cerrar").addEventListener("click", function(){
           deleteCookie("usuario");
